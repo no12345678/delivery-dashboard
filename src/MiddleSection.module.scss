@@ -1,0 +1,279 @@
+$dark-blue: #024d7a;
+$orange: #f57213;
+$gray: #B0ADAD;
+
+.container {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .headerSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .messages {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+
+            .firstMessage {
+                color: $gray;
+            }
+
+            .secondMessage {
+                font-weight: bold;
+                font-size: 20px;
+                letter-spacing: 4px;
+            }
+        }
+
+        .headerSectionRightSide {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 25px;
+
+            .notifications {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: #c5e7f9;
+                    cursor: pointer;
+                }
+
+                .notificationsIndicator {
+                    border-radius: 50%;
+                    background-color: $orange;
+                    position: absolute;
+                    top: 12px;
+                    right: 11px;
+                    height: 8px;
+                    width: 8px;
+                }
+            }
+
+            .profileImage {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .promotionSectionContainer {
+        background-color: $dark-blue;
+        color: white;
+        border-radius: 10px;
+        height: 25%;
+        display: flex;
+        justify-content: space-between;
+
+        .promotionTextContainer {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .promotionTextInnerContainer {
+                width: 80%;
+                text-align: left;
+
+                .promotionText {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .promotionDiscount {
+                    font-size: 24px;
+                    font-weight: bold;
+                    position: absolute;
+                    right: -45px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 32px;
+                }
+            }
+        }
+
+        .deliveryParcelImage {
+            width: 30%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .categoryContainer {
+        height: 15%;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        user-select: none;
+
+        .categoryHeader {
+            text-align: left;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .categoryOptionsCotainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .categoryOptionContainer {
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                background-color: white;
+                border-radius: 15px;
+                padding: 5px 10px;
+                font-size: 14px;
+                align-items: center;
+                cursor: pointer;
+
+                &:hover {
+                    color: white;
+                    background-color: $orange;
+                }
+
+                .categoryImage {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+
+            .categoryOptionSelected {
+                color: white;
+                background-color: $orange;
+            }
+        }
+    }
+
+    .menuSectionContainer {
+        height: 38%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .menuSectionTitle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-weight: bold;
+            justify-content: space-between;
+            font-size: 18px;
+
+            .leftSideContainer {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+            }
+
+            .fireImage {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 20px;
+                width: 20px;
+            }
+
+            .seeAllButton {
+                font-weight: normal;
+                font-size: 14px;
+                color: $gray;
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+
+        .menuOptionsContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 84%;
+
+            .menuOptionContainer {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                height: 100%;
+                width: 18%;
+                padding: 5px;
+                border-radius: 10px;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+
+                &:hover {
+                    background-color: white;
+                }
+
+                .dishName {
+                    font-weight: bold;
+                }
+
+                .fireImage {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 20px;
+                    width: 20px;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                }
+
+                .burgerImage {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 80px;
+                    width: 80px;
+                    align-self: center;
+                }
+
+                .additionalDetailsContainer {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    color: $gray;
+
+                    .orangeSeparator {
+                        height: 5px;
+                        width: 5px;
+                        background-color: $orange;
+                        border-radius: 50%;
+                    }
+                }
+
+                .priceContainer {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
