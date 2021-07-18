@@ -8,20 +8,21 @@ function App() {
   const ease = [0.6, 0.01, -0.05, 0.9];
 
   const container = {
-    hidden: { x: -100, opacity: 0 },
+    hidden: { y: -100, opacity: 0 },
     show: {
-      x: 0,
+      y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
         ease: ease,
       },
     },
   };
 
   const item = {
-    hidden: { x: -100, opacity: 0 },
-    show: { x: 0, opacity: 1, transition: { ease: ease, duration: 2 } },
+    hidden: { y: -100, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
   return (

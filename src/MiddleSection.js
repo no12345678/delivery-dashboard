@@ -5,13 +5,14 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { motion } from "framer-motion";
 
 const theme = createTheme({
   overrides: {
     MuiOutlinedInput: {
       root: {
         backgroundColor: "white",
-        borderRadius: '15px !important',
+        borderRadius: "15px !important",
         height: 45,
         width: 200,
       },
@@ -80,9 +81,29 @@ const MiddleSection = () => {
     },
   ];
 
+  const ease = [0.6, 0.01, -0.05, 0.9];
+
+  const container = {
+    hidden: { x: -100, opacity: 0 },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 1,
+        ease: ease,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { x: -100, opacity: 0 },
+    show: { x: 0, opacity: 1, transition: { duration: 1 } },
+  };
+
   const renderHeaderSection = () => {
     return (
-      <div className={styles.headerSection}>
+      <motion.div className={styles.headerSection} variants={item}>
         <div className={styles.messages}>
           <div className={styles.firstMessage}>Welcome</div>
           <div className={styles.secondMessage}>Let's Order Your Food</div>
@@ -109,13 +130,13 @@ const MiddleSection = () => {
             style={{ backgroundImage: "url(/images/unsplashprofile.jpg)" }}
           ></div>
         </div>
-      </div>
+      </motion.div>
     );
   };
 
   const renderPromotionSection = () => {
     return (
-      <div className={styles.promotionSectionContainer}>
+      <motion.div className={styles.promotionSectionContainer} variants={item}>
         <div className={styles.promotionTextContainer}>
           <div className={styles.promotionTextInnerContainer}>
             <div className={styles.promotionText}>
@@ -128,13 +149,13 @@ const MiddleSection = () => {
           className={styles.deliveryParcelImage}
           style={{ backgroundImage: "url(/images/delivery-parcel.png)" }}
         ></div>
-      </div>
+      </motion.div>
     );
   };
 
   const renderCategorySection = () => {
     return (
-      <div className={styles.categoryContainer}>
+      <motion.div className={styles.categoryContainer} variants={item}>
         <div className={styles.categoryHeader}>Category</div>
         <div className={styles.categoryOptionsCotainer}>
           {categories.map((element, index) => {
@@ -157,13 +178,13 @@ const MiddleSection = () => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     );
   };
 
   const renderMenuSection = () => {
     return (
-      <div className={styles.menuSectionContainer}>
+      <motion.div className={styles.menuSectionContainer} variants={item}>
         <div className={styles.menuSectionTitle}>
           <div className={styles.leftSideContainer}>
             <div
@@ -201,18 +222,23 @@ const MiddleSection = () => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     );
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={styles.container}>
+      <motion.div
+        className={styles.container}
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         {renderHeaderSection()}
         {renderPromotionSection()}
         {renderCategorySection()}
         {renderMenuSection()}
-      </div>
+      </motion.div>
     </ThemeProvider>
   );
 };

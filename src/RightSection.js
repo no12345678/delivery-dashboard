@@ -6,11 +6,32 @@ import * as styles from "./RightSection.module.scss";
 import Button from "@material-ui/core/Button";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { motion } from "framer-motion";
 
 const RightSection = () => {
+  const ease = [0.6, 0.01, -0.05, 0.9];
+
+  const container = {
+    hidden: { x: -100, opacity: 0 },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 2,
+        ease: ease,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { x: -100, opacity: 0 },
+    show: { x: 0, opacity: 1, transition: { duration: 1 } },
+  };
+
   const renderTopSection = () => {
     return (
-      <div className={styles.topSectionContainer}>
+      <motion.div className={styles.topSectionContainer} variants={item}>
         <div className={styles.heartContainer}>
           <FavoriteIcon style={{ fill: "red", fontSize: 14 }} />
         </div>
@@ -55,13 +76,13 @@ const RightSection = () => {
         >
           Add to Cart
         </Button>
-      </div>
+      </motion.div>
     );
   };
 
   const renderBottomSection = () => {
     return (
-      <div className={styles.bottomSectionContainer}>
+      <motion.div className={styles.bottomSectionContainer} variants={item}>
         <div
           className={styles.scooterImage}
           style={{ backgroundImage: "url(/images/delivery-scooter.png)" }}
@@ -89,15 +110,20 @@ const RightSection = () => {
             className={styles.emailInputContainer}
           />
         </div>
-      </div>
+      </motion.div>
     );
   };
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
       {renderTopSection()}
       {renderBottomSection()}
-    </div>
+    </motion.div>
   );
 };
 
